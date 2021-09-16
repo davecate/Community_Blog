@@ -11,7 +11,7 @@ export const PostLink = ({ post }) => {
   return (
     <li className="list-group-item text-truncate">
       {/* Link to url/post.id */}
-      <Link to=":userId/posts/:postId">{post.title}</Link>
+      <Link to="posts/:postId">{post.title}</Link>
     </li>
   )
 }

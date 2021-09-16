@@ -3,6 +3,7 @@ import React from "react"
 import Post from "./Post"
 import PostLink from "./PostLink"
 import NoPostSelectedMessage from "./NoPostSelectedMessage"
+import { Route, Switch } from "react-router"
 
 /*
   TODO: Update the below so that the components show on the appropriate route.
@@ -29,10 +30,15 @@ export const PostList = ({ posts }) => {
       </div>
       <div className="col-9">
         {/* <Switch> goes here */}
-        {/* url/posts */}
-        <NoPostSelectedMessage />
-        {/* url/posts/post.id */}
-        <Post posts={posts} />
+        <Switch>
+          {/* url/posts/post.id */}
+          <Route exact path="/users/:userId/posts/:postId">
+          <Post posts={posts} />
+        </Route>
+          <Route>
+            <NoPostSelectedMessage />
+          </Route>
+        </Switch>
       </div>
     </div>
   )

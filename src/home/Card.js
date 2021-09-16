@@ -15,7 +15,7 @@ export const Card = ({ user = { posts: [] } }) => {
           {/* <Link> goes here, url/user.id */}
           <Link to={`users/${user.id}`}>{user.name}</Link>
         </h2>
-        <a className="mt-2">{user.posts.length} Posts »</a>
+        <Link to={`users/${user.id}/posts`} className="mt-2">{user.posts.length} Posts »</Link>
       </div>
     </article>
   )

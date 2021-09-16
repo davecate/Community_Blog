@@ -58,10 +58,10 @@ export const User = () => {
         <ul className="nav nav-tabs">
           {/* <Link>'s go here */}
           <li className="nav-item">
-            <Link className="nav-link">Profile</Link>
+            <Link to="/users/:userId" className="nav-link">Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link">Posts</Link>
+            <Link to="/users/:userId/posts" className="nav-link">Posts</Link>
           </li>
         </ul>
 
@@ -70,11 +70,11 @@ export const User = () => {
             {/* <Switch></Switch> goes here */}
             <Switch>
               {/* url */}
-              <Route path="/users/:userId">
+              <Route exact path="/users/:userId">
                 <UserProfile user={user} />
               </Route>
               {/* url/posts */}
-              <Route path="/users/:userId/posts">
+              <Route exact path="/users/:userId/posts">
                 <PostList posts={user.posts} />
               </Route>
             </Switch>
