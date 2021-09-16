@@ -1,10 +1,10 @@
-import React, { Fragment } from "react"
+import React, { useLocation } from "react"
 // import useLocation
 import Header from "./common/Header"
 import CardList from "./home/CardList"
 import User from "./user/User"
 import NotFound from "./common/NotFound"
-import { Switch, Route } from "react-router"
+import { Switch, Route } from "react-router-dom"
 
 function App() {
   /*
@@ -23,13 +23,13 @@ function App() {
     <div>
       <Header />
       <Switch>
-              {/* url/user/user.id */}
-        <Route path={"/users/:userid"}>
-          <User />
-        </Route>
               {/* url */}
         <Route exact path={"/"}>
           <CardList />
+        </Route>
+              {/* url/user/user.id */}
+        <Route path={"/users/:userid"}>
+          <User />
         </Route>
         <Route>
           <NotFound />

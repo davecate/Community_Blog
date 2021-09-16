@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
   TODO: Change the <a> below to a <Link> to the home page
 */
 
-const NotFound = () => (
+export const NotFound = () => (
   <main className="container">
     <p>Page not found!</p>
     <p>

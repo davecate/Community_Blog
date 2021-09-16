@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { Link, Switch, Route } from "react-router-dom"
+
 import UserProfile from "./UserProfile"
 import { fetchUserWithPosts } from "../api"
 import PostList from "./PostList"
@@ -30,8 +32,8 @@ export const User = () => {
     return (
       <ErrorMessage error={error}>
         <p>
-        {/* <Link to="/"> */}
-          <a>Return Home</a>
+        {/* link goes here */}
+          <Link to="/">Return Home</Link>
         </p>
       </ErrorMessage>
     )
@@ -56,20 +58,26 @@ export const User = () => {
         <ul className="nav nav-tabs">
           {/* <Link>'s go here */}
           <li className="nav-item">
-            <a className="nav-link">Profile</a>
+            <Link className="nav-link">Profile</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link">Posts</a>
+            <Link className="nav-link">Posts</Link>
           </li>
         </ul>
 
         {user.id ? (
           <div className="p-4 border border-top-0">
             {/* <Switch></Switch> goes here */}
-            {/* url/posts */}
-            <PostList posts={user.posts} />
-            {/* url */}
-            <UserProfile user={user} />
+            <Switch>
+              {/* url */}
+              <Route path="/users/:userId">
+                <UserProfile user={user} />
+              </Route>
+              {/* url/posts */}
+              <Route path="/users/:userId/posts">
+                <PostList posts={user.posts} />
+              </Route>
+            </Switch>
           </div>
         ) : (
           <div className="p-4 border border-top-0">

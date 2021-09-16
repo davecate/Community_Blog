@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 // import useHistory and useLocation
 // TODO: Change the link below to go back to the home page.
 
@@ -9,7 +10,7 @@ export const PostsNav = () => (
     <ol className="breadcrumb">
       <li className="breadcrumb-item">
         {/* <Link> to "/" */}
-        <a className="btn btn-link">Go Home</a>
+        <Link to="/" className="btn btn-link">Go Home</Link>
       </li>
     </ol>
   </nav>
