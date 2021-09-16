@@ -1,5 +1,5 @@
 import React from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, useRouteMatch } from "react-router-dom"
 
 import { deletePost } from "../api"
 
@@ -7,16 +7,16 @@ import { deletePost } from "../api"
 import NoPostSelectedMessage from "./NoPostSelectedMessage"
 
 export const Post = ({ posts }) => {
-  // useHistory and useLocation go here
+  const history = useHistory()
 
-  const postId = 1; // TODO: This ID will need to be pulled from parameters.
+  const postId = useRouteMatch().params.postId
   const post = posts.find((post) => post.id === Number(postId))
 
   const handleDelete = async (id) => {
     const result = window.confirm("Are you sure you want to delete this post?")
     if (result) {
       await deletePost(id)
-      // history.go("/")
+      history.push("/") 
     }
   }
 

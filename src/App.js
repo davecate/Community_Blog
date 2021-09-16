@@ -1,5 +1,5 @@
-import React, { useLocation } from "react"
-// import useLocation
+import React from "react"
+
 import Header from "./common/Header"
 import CardList from "./home/CardList"
 import User from "./user/User"
@@ -23,12 +23,10 @@ function App() {
     <div>
       <Header />
       <Switch>
-              {/* url */}
         <Route exact path={"/"}>
           <CardList />
         </Route>
-              {/* url/user/user.id */}
-        <Route path={"/users/:userid"}>
+        <Route path={"/users/:userId"}>
           <User />
         </Route>
         <Route>
