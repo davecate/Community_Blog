@@ -10,7 +10,7 @@ function ignoreAbortError(delegate) {
       return await delegate.apply(null, delegateArguments);
     } catch (error) {
       if (error.name !== "AbortError") {
-        throw error;
+        throw error
       }
     }
   }
@@ -53,12 +53,12 @@ async function fetchUsersWithPostsDelegate(signal) {
 
 async function fetchUsers(signal) {
   const url = `https://jsonplaceholder.typicode.com/users`
-  const response = await fetch(url, { signal });
+  const response = await fetch(url, { signal })
   return response.json()
 }
 
 async function fetchPostsForUser(userId, signal) {
   const url = `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
-  const response = await fetch(url, { signal });
+  const response = await fetch(url, { signal })
   return response.json()
 }

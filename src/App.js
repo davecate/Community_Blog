@@ -3,6 +3,8 @@ import React, { Fragment } from "react"
 import Header from "./common/Header"
 import CardList from "./home/CardList"
 import User from "./user/User"
+import NotFound from "./common/NotFound"
+import { Switch, Route } from "react-router"
 
 function App() {
   /*
@@ -18,15 +20,22 @@ function App() {
   // useLocation goes here
 
   return (
-    // <Switch> goes here
-    <Fragment>
+    <div>
       <Header />
-      {/* url/user/user.id */}
-      <User />
-      {/* url */}
-      <CardList />
-      {/* NotFound goes here */}
-    </Fragment>
+      <Switch>
+              {/* url/user/user.id */}
+        <Route path={"/users/:userid"}>
+          <User />
+        </Route>
+              {/* url */}
+        <Route exact path={"/"}>
+          <CardList />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+    </div>
   )
 }
 
