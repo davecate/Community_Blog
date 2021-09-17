@@ -7,11 +7,10 @@ import NotFound from "./common/NotFound"
 import CardList from "./home/CardList"
 import User from "./user/User"
 
-function App() {
-
-  // Added div, switch and route paths
+const App = () => {
 
   return (
+    
     <div>
       <Header />
       <Switch>
@@ -26,7 +25,9 @@ function App() {
         </Route>
       </Switch>
     </div>
+
   )
+
 }
 
 export default App

@@ -20,6 +20,7 @@ export const PostList = ({ posts }) => {
         <ul className="list-group">{postLinks}</ul>
       </div>
       <div className="col-9">
+
         <Switch>
           <Route exact path={ path + "/:postId" }>
             <Post posts={posts} />
@@ -28,6 +29,7 @@ export const PostList = ({ posts }) => {
             <NoPostSelectedMessage />
           </Route>
         </Switch>
+        
       </div>
     </div>
 
